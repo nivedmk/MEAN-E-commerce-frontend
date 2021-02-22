@@ -1,0 +1,48 @@
+<div
+  class="col-md-7 col-lg-4 ml-auto"
+  style="margin: auto; display: block; padding: auto"
+>
+  <form
+    (submit)="onFormSubmit()"
+    autoComplete="off"
+    [formGroup]="auth.logInForm"
+  >
+    <div class="row">
+      <div class="input-group mb-4">
+        <div class="input-group-prepend"></div>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          formControlName="email"
+          placeholder="Email Address"
+          class="form-control"
+        />
+      </div>
+      <div class="input-group mb-4">
+        <div class="input-group-prepend"></div>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          formControlName="password"
+          placeholder="Password"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group col-lg-12 mx-auto mb-0">
+        <button
+          class="btn btn-primary btn-block py-2"
+          [disabled]="!auth.logInForm.valid"
+        >
+          Sign In
+        </button>
+      </div>
+    </div>
+  </form>
+  <div style="text-align: center">
+    <a routerLink="/create-acount" style="text-decoration: none; color: black"
+      >Create an account?</a
+    >
+  </div>
+</div>

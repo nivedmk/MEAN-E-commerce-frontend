@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <table class="table table-striped table-responsive-md">
+    <thead>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Remove</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemService.cartItems">
+        <td scope="row">{{ item.ItemName }}</td>
+        <td scope="row">{{ item.Qty }}</td>
+        <td scope="row">{{ item.Price }}</td>
+        <td
+          scope="row"
+          (click)="onRemoveFromCart(item._id)"
+          style="cursor: pointer"
+        >
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

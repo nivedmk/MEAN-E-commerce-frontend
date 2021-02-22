@@ -1,0 +1,42 @@
+<div class="col-md-5">
+  <form
+    [formGroup]="addItemService.form"
+    (submit)="onSubmit()"
+    autocomplete="off"
+  >
+    <br />
+    <label for="">ItemName</label>
+    <input class="form-control" type="text" formControlName="ItemName" />
+    <br />
+    <label for="">Price</label>
+    <input class="form-control" type="text" formControlName="Price" />
+    <br />
+    <label for="">Type</label>
+
+    <select class="form-control" formControlName="Type" id="branchid" required>
+      <option value="">Select a Store</option>
+      <option value="communication">communication</option>
+      <option value="weapons">weapons</option>
+      <option value="others">others</option>
+    </select>
+
+    <br />
+    <!-- <input
+      class="form-control"
+      type="file"
+      #file
+      placeholder="Choose file"
+      accept="image/*"
+      (change)="preview(file.files)"
+    />
+    <button (click)="file.click()" class="btn btn-info m-2">Upload file</button>
+    <br /> -->
+    <button
+      class="btn btn-success m-2"
+      type="submit"
+      [disabled]="!addItemService.form.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

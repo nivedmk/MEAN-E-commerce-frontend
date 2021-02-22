@@ -1,0 +1,33 @@
+<div style="display: flex; justify-content: space-between">
+  <a class="navbar-brand" routerLink="/home">Home</a>
+  <ul class="nav">
+    <li
+      class="nav-item mt-2"
+      *ngIf="sessionService.Token"
+      style="cursor: pointer"
+    >
+      <a [routerLink]="['/cart']">
+        <i
+          class="fas fa-shopping-cart"
+          style="font-size: 25px; color: darkgray"
+        ></i>
+
+        <span class="badge badge-warning" id="lblCartCount">
+          {{ localStorageService.CartItemLength }}
+        </span>
+      </a>
+    </li>
+    <li class="nav-item" *ngIf="sessionService.Token">
+      <a class="nav-link" routerLink="/wish-list">WishList</a>
+    </li>
+    <li class="nav-item" *ngIf="!sessionService.Token">
+      <a class="nav-link" routerLink="/login">Log In </a>
+    </li>
+    <li class="nav-item" (click)="signOut()" *ngIf="sessionService.Token">
+      <a class="nav-link" style="cursor: pointer">Log Out </a>
+    </li>
+    <li class="nav-item" *ngIf="sessionService.Token">
+      <span class="nav-link">Hai {{ sessionService.UserName }} </span>
+    </li>
+  </ul>
+</div>
